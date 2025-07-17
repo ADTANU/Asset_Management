@@ -1,0 +1,66 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-5">Welcome, {{ employeeName }}!</h2>
+
+  <div class="row g-4 justify-content-center">
+    
+    <!-- View My Assets -->
+    <div class="col-md-5 col-lg-4">
+      <div class="card option-card shadow-sm h-100">
+        <div class="card-body text-center">
+          <i class="bi bi-box-seam card-icon text-primary"></i>
+          <h5 class="card-title mt-2">View My Assets</h5>
+          <p class="card-text">See all assets currently assigned to you.</p>
+          <a class="btn btn-outline-primary w-100" routerLink="/employee/view-assets">Open</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Request New Asset -->
+    <div class="col-md-5 col-lg-4">
+      <div class="card option-card shadow-sm h-100">
+        <div class="card-body text-center">
+          <i class="bi bi-plus-circle card-icon text-success"></i>
+          <h5 class="card-title mt-2">Request New Asset</h5>
+          <p class="card-text">Need something new? Request it here.</p>
+          <a class="btn btn-outline-success w-100" routerLink="/employee/request-asset">Request</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Raise Service Request -->
+    <div class="col-md-5 col-lg-4">
+      <div class="card option-card shadow-sm h-100">
+        <div class="card-body text-center">
+          <i class="bi bi-tools card-icon text-warning"></i>
+          <h5 class="card-title mt-2">Service Request</h5>
+          <p class="card-text">Having issues with an asset? Raise a ticket.</p>
+          <a class="btn btn-outline-warning w-100" routerLink="/employee/request-service">Raise Issue</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audit Requests -->
+    <div class="col-md-5 col-lg-4">
+      <div class="card option-card shadow-sm h-100">
+        <div class="card-body text-center">
+          <i class="bi bi-clipboard-check card-icon text-info"></i>
+          <h5 class="card-title mt-2">Audit Requests</h5>
+          <p class="card-text">Respond to company audits for your assets.</p>
+          <a class="btn btn-outline-info w-100" routerLink="/employee/audit-request">Respond</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Logout -->
+    <div class="col-md-5 col-lg-4">
+      <div class="card option-card shadow-sm h-100 logout-card">
+        <div class="card-body text-center">
+          <i class="bi bi-box-arrow-right card-icon text-danger"></i>
+          <h5 class="card-title mt-2">Logout</h5>
+          <p class="card-text">End your session securely.</p>
+          <button class="btn btn-outline-danger w-100" (click)="logout()">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

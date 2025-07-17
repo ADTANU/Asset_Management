@@ -1,0 +1,88 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-5">Submit Audit Request</h2>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="successMessage" class="alert alert-success">
+    {{ successMessage }}
+  </div>
+
+  <form (ngSubmit)="submitAuditRequest()">
+    <!-- Asset Name -->
+    <div class="mb-3">
+      <label for="assetName" class="form-label">Asset Name</label>
+      <input type="text" class="form-control" id="assetName" [(ngModel)]="assetName" name="assetName" required>
+    </div>
+
+    <!-- Asset Category -->
+    <div class="mb-3">
+      <label for="assetCategory" class="form-label">Asset Category</label>
+      <select class="form-select" id="assetCategory" [(ngModel)]="assetCategory" name="assetCategory" required>
+        <option value="Laptop">Laptop</option>
+        <option value="Monitor">Monitor</option>
+        <option value="Keyboard">Keyboard</option>
+        <option value="Furniture">Furniture</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <!-- Employee Name -->
+    <div class="mb-3">
+      <label for="employeeName" class="form-label">Employee Name</label>
+      <input type="text" class="form-control" id="employeeName" [(ngModel)]="employeeName" name="employeeName" required>
+    </div>
+
+    <!-- Asset ID / Tag Number -->
+    <div class="mb-3">
+      <label for="assetID" class="form-label">Asset ID / Tag Number</label>
+      <input type="text" class="form-control" id="assetID" [(ngModel)]="assetID" name="assetID" required>
+    </div>
+
+    <!-- Asset Status -->
+    <div class="mb-3">
+      <label for="assetStatus" class="form-label">Asset Status</label>
+      <select class="form-select" id="assetStatus" [(ngModel)]="assetStatus" name="assetStatus" required>
+        <option value="In Use">In Use</option>
+        <option value="Damaged">Damaged</option>
+        <option value="Not Working">Not Working</option>
+        <option value="Available">Available</option>
+      </select>
+    </div>
+
+    <!-- Priority Level -->
+    <div class="mb-3">
+      <label for="priorityLevel" class="form-label">Priority Level</label>
+      <select class="form-select" id="priorityLevel" [(ngModel)]="priorityLevel" name="priorityLevel" required>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+      </select>
+    </div>
+
+    <!-- Audit Request Type -->
+    <div class="mb-3">
+      <label for="auditRequestType" class="form-label">Audit Request Type</label>
+      <select class="form-select" id="auditRequestType" [(ngModel)]="auditRequestType" name="auditRequestType" required>
+        <option value="Regular Maintenance">Regular Maintenance</option>
+        <option value="Damage Report">Damage Report</option>
+        <option value="Verification">Verification</option>
+      </select>
+    </div>
+
+    <!-- Audit Date -->
+    <div class="mb-3">
+      <label for="auditDate" class="form-label">Audit Date</label>
+      <input type="date" class="form-control" id="auditDate" [(ngModel)]="auditDate" name="auditDate" required>
+    </div>
+
+    <!-- Comments -->
+    <div class="mb-3">
+      <label for="comments" class="form-label">Comments</label>
+      <textarea class="form-control" id="comments" [(ngModel)]="comments" name="comments" rows="3" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

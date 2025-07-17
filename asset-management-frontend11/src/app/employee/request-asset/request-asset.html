@@ -1,0 +1,68 @@
+<div class="container mt-4">
+  <h3>Request New Asset</h3>
+
+  <form (ngSubmit)="onSubmit()" class="mt-4">
+    <!-- Asset Type -->
+    <div class="mb-3">
+      <label for="assetType" class="form-label">Asset Type</label>
+      <select class="form-select" [(ngModel)]="assetRequest.assetType" name="assetType" required>
+        <option value="" disabled selected>Select asset type</option>
+        <option>Laptop</option>
+        <option>Access Card</option>
+        <option>Monitor</option>
+        <option>Keyboard</option>
+        <option>Mouse</option>
+        <option>Headphones</option>
+      </select>
+    </div>
+
+    <!-- Asset Category -->
+    <div class="mb-3">
+      <label for="assetCategory" class="form-label">Asset Category</label>
+      <select class="form-select" [(ngModel)]="assetRequest.assetCategory" name="assetCategory" required>
+        <option value="" disabled selected>Select asset category</option>
+        <option>Laptop</option>
+        <option>Furniture</option>
+        <option>Electronics</option>
+        <option>Software</option>
+        <option>Accessories</option>
+      </select>
+    </div>
+
+    <!-- Priority Level -->
+    <div class="mb-3">
+      <label for="priorityLevel" class="form-label">Priority Level</label>
+      <select class="form-select" [(ngModel)]="assetRequest.priorityLevel" name="priorityLevel" required>
+        <option value="" disabled selected>Select priority level</option>
+        <option>High</option>
+        <option>Medium</option>
+        <option>Low</option>
+      </select>
+    </div>
+
+    <!-- Reason -->
+    <div class="mb-3">
+      <label for="reason" class="form-label">Reason</label>
+      <textarea class="form-control" [(ngModel)]="assetRequest.reason" name="reason" rows="3" required></textarea>
+    </div>
+
+    <!-- Justification -->
+    <div class="mb-3">
+      <label for="justification" class="form-label">Asset Justification</label>
+      <textarea class="form-control" [(ngModel)]="assetRequest.justification" name="justification" rows="3" required></textarea>
+    </div>
+
+    <!-- Employee ID -->
+    <div class="mb-3">
+      <label for="employeeId" class="form-label">Employee ID</label>
+      <input type="text" class="form-control" [(ngModel)]="assetRequest.employeeId" name="employeeId" required>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary">Submit Request</button>
+  </form>
+
+  <!-- Success/Error Alerts -->
+  <div *ngIf="message" class="alert alert-success mt-3">{{ message }}</div>
+  <div *ngIf="error" class="alert alert-danger mt-3">{{ error }}</div>
+</div>

@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <h3>Service Requests</h3>
+
+  <!-- Table to display the list of service requests -->
+  <table class="table table-bordered mt-3">
+    <thead class="table-light">
+      <tr>
+        <th>Request ID</th>
+        <th>Asset ID</th>
+        <th>Description</th>
+        <th>Issue Type</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let request of serviceRequests">
+        <td>{{ request.requestId }}</td>
+        <td>{{ request.assetId }}</td>
+        <td>{{ request.description }}</td>
+        <td>{{ request.issueType }}</td>
+        <td>{{ request.status }}</td>
+        <td>
+          <button class="btn btn-sm btn-primary" (click)="viewDetails(request.requestId)">View</button>
+          <button class="btn btn-sm btn-danger ms-2" (click)="deleteRequest(request.requestId)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

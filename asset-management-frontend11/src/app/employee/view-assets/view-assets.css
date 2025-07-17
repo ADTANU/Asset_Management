@@ -1,0 +1,103 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Table Styling */
+.table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f1f3f5;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.table th {
+  font-weight: bold;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+/* Status Badges */
+.badge {
+  padding: 8px 15px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 25px;
+}
+
+.badge-success {
+  background-color: #28a745;
+  color: white;
+}
+
+.badge-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.badge-warning {
+  background-color: #ffc107;
+  color: white;
+}
+
+.badge-info {
+  background-color: #17a2b8;
+  color: white;
+}
+
+/* Row Highlight on Hover */
+.asset-row {
+  transition: background-color 0.3s ease;
+}
+
+.asset-row:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+/* No Assets Message */
+.alert-info {
+  font-size: 1.1rem;
+  padding: 15px;
+  text-align: center;
+}
+
+/* Center Heading */
+.text-center {
+  text-align: center;
+}
+
+/* Home Button */
+.btn-outline-primary {
+  font-size: 1.1rem;
+  padding: 10px 20px;
+}
+
+/* Filter Styling */
+.form-select {
+  width: auto;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .table {
+    font-size: 0.9rem;
+  }
+  
+  .badge {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+}

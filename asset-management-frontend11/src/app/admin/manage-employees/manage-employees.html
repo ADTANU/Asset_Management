@@ -1,0 +1,29 @@
+<div class="container mt-4">
+  <h3>Manage Employees</h3>
+
+  <table class="table table-bordered mt-3">
+    <thead class="table-light">
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>{{ employee.employeeId }}</td>
+        <td>{{ employee.username }}</td>
+        <td>{{ employee.fullName }}</td>
+        <td>{{ employee.email }}</td>
+        <td>{{ employee.role }}</td>
+        <td>
+          <button class="btn btn-sm btn-primary" (click)="editEmployee(employee.employeeId)">Edit</button>
+          <button class="btn btn-sm btn-danger ms-2" (click)="deleteEmployee(employee.employeeId)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,9 @@
+form {
+  background: #f8f9fa;
+  background-size: cover;  /* Optional: To cover the entire form area */
+  background-position: center;  /* Optional: Center the image */
+  background-repeat: no-repeat;  /* Optional: Prevent repeat */
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ccc;
+}

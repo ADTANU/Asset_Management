@@ -1,0 +1,66 @@
+<div class="container mt-4">
+  <h3>Raise Service Request</h3>
+
+  <form (ngSubmit)="onSubmit()" class="mt-4">
+    <!-- Asset Number -->
+    <div class="mb-3">
+      <label for="assetNumber" class="form-label">Asset Number</label>
+      <input type="text" class="form-control" name="assetNumber" [(ngModel)]="serviceRequest.assetNumber" required>
+    </div>
+
+    <!-- Asset Category -->
+    <div class="mb-3">
+      <label for="assetCategory" class="form-label">Asset Category</label>
+      <select class="form-select" name="assetCategory" [(ngModel)]="serviceRequest.assetCategory" required>
+        <option value="" disabled selected>Select asset category</option>
+        <option>Laptop</option>
+        <option>Monitor</option>
+        <option>Keyboard</option>
+        <option>Mouse</option>
+        <option>Headphones</option>
+      </select>
+    </div>
+
+    <!-- Asset Model -->
+    <div class="mb-3">
+      <label for="assetModel" class="form-label">Asset Model</label>
+      <input type="text" class="form-control" name="assetModel" [(ngModel)]="serviceRequest.assetModel" required>
+    </div>
+
+    <!-- Issue Type -->
+    <div class="mb-3">
+      <label for="issueType" class="form-label">Issue Type</label>
+      <select class="form-select" name="issueType" [(ngModel)]="serviceRequest.issueType" required>
+        <option value="" disabled selected>Select issue</option>
+        <option>Hardware</option>
+        <option>Software</option>
+        <option>Physical Damage</option>
+        <option>Not Working</option>
+      </select>
+    </div>
+
+    <!-- Priority Level -->
+    <div class="mb-3">
+      <label for="priorityLevel" class="form-label">Priority Level</label>
+      <select class="form-select" name="priorityLevel" [(ngModel)]="serviceRequest.priorityLevel" required>
+        <option value="" disabled selected>Select priority level</option>
+        <option>High</option>
+        <option>Medium</option>
+        <option>Low</option>
+      </select>
+    </div>
+
+    <!-- Description -->
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea class="form-control" name="description" rows="3" [(ngModel)]="serviceRequest.description" required></textarea>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary">Submit Request</button>
+  </form>
+
+  <!-- Success/Error Alerts -->
+  <div *ngIf="message" class="alert alert-success mt-3">{{ message }}</div>
+  <div *ngIf="error" class="alert alert-danger mt-3">{{ error }}</div>
+</div>

@@ -1,0 +1,27 @@
+<div class="container mt-4">
+  <h3>Edit Employee</h3>
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label class="form-label">Username</label>
+      <input class="form-control" formControlName="username" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Full Name</label>
+      <input class="form-control" formControlName="fullName" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input class="form-control" formControlName="email" type="email" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Role</label>
+      <input class="form-control" formControlName="role" />
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="employeeForm.invalid">Update</button>
+    <button class="btn btn-secondary ms-2" (click)="router.navigate(['/admin/manage-employees'])">Cancel</button>
+  </form>
+</div>

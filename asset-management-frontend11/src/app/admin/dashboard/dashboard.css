@@ -1,0 +1,13 @@
+.option-card {
+  border-radius: 10px;
+  transition: transform 0.2s;
+}
+
+.option-card:hover {
+  transform: scale(1.03);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}

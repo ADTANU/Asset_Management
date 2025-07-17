@@ -1,0 +1,74 @@
+<div class="container mt-5">
+  <h2 class="text-center">Manage Assets</h2>
+  <table class="table table-bordered mt-3">
+    <thead>
+      <tr>
+        <th>Asset ID</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let asset of assets">
+        <td>{{ asset.assetId }}</td>
+        <td>{{ asset.assetName }}</td>
+        <td>{{ asset.category }}</td>
+        <td>{{ asset.status }}</td>
+        <td>
+          <button class="btn btn-sm btn-warning me-2" (click)="editAsset(asset.assetId)">Edit</button>
+          <button class="btn btn-sm btn-danger" (click)="deleteAsset(asset.assetId)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Modal for Editing Asset (Visible when showModal is true) -->
+<div *ngIf="showModal" class="modal-overlay">
+  <div class="modal-content">
+    <h5 class="modal-title">Edit Asset</h5>
+    <form *ngIf="selectedAsset">
+      <div class="mb-3">
+        <label for="assetName" class="form-label">Asset Name</label>
+        <input type="text" class="form-control" id="assetName" [(ngModel)]="selectedAsset.assetName" name="assetName" required>
+      </div>
+      <div class="mb-3">
+        <label for="category" class="form-label">Category</label>
+        <input type="text" class="form-control" id="category" [(ngModel)]="selectedAsset.category" name="category" required>
+      </div>
+      <div class="mb-3">
+        <label for="status" class="form-label">Status</label>
+        <select class="form-control" id="status" [(ngModel)]="selectedAsset.status" name="status" required>
+          <option value="Active">Active</option>
+          <option value="Inactive">Inactive</option>
+        </select>
+      </div>
+      <button type="button" class="btn btn-success" (click)="saveChanges()">Save Changes</button>
+      <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+    </form>
+  </div>
+</div>
+
+<!-- Add custom modal styles -->
+<style>
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 50%;
+  }
+</style>

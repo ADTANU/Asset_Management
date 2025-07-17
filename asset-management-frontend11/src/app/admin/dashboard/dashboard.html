@@ -1,0 +1,65 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-5">Welcome, {{ adminName }}</h2>
+
+  <div class="row g-4 justify-content-center">
+    <!-- Manage Assets -->
+    <div class="col-md-5 col-lg-4">
+      <div class="card option-card shadow-sm h-100">
+        <div class="card-body text-center">
+          <i class="bi bi-hdd-rack card-icon text-primary"></i>
+          <h5 class="card-title mt-2">Manage Assets</h5>
+          <p class="card-text">Add, update, or remove assets from the system.</p>
+          <a class="btn btn-outline-primary w-100" routerLink="/admin/manage-assets">Manage</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Manage Employees -->
+    <div class="col-md-5 col-lg-4">
+      <div class="card option-card shadow-sm h-100">
+        <div class="card-body text-center">
+          <i class="bi bi-people-fill card-icon text-success"></i>
+          <h5 class="card-title mt-2">Manage Employees</h5>
+          <p class="card-text">Register, remove, or view employees.</p>
+          <a class="btn btn-outline-success w-100" routerLink="/admin/manage-employees">Manage</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audit Assets -->
+    <div class="col-md-5 col-lg-4">
+      <div class="card option-card shadow-sm h-100">
+        <div class="card-body text-center">
+          <i class="bi bi-clipboard-data card-icon text-warning"></i>
+          <h5 class="card-title mt-2">Audit Assets</h5>
+          <p class="card-text">Review and confirm asset audits.</p>
+          <a class="btn btn-outline-warning w-100" routerLink="/admin/audit-assets">Audit</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service Requests -->
+    <div class="col-md-5 col-lg-4">
+      <div class="card option-card shadow-sm h-100">
+        <div class="card-body text-center">
+          <i class="bi bi-wrench-adjustable-circle card-icon text-info"></i>
+          <h5 class="card-title mt-2">Service Requests</h5>
+          <p class="card-text">View and resolve service requests from employees.</p>
+          <a class="btn btn-outline-info w-100" routerLink="/admin/service-requests">Handle</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Logout -->
+    <div class="col-md-5 col-lg-4">
+      <div class="card option-card shadow-sm h-100 logout-card">
+        <div class="card-body text-center">
+          <i class="bi bi-box-arrow-right card-icon text-danger"></i>
+          <h5 class="card-title mt-2">Logout</h5>
+          <p class="card-text">Securely end the current session.</p>
+          <button class="btn btn-outline-danger w-100" (click)="logout()">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

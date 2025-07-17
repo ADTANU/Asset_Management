@@ -1,0 +1,82 @@
+<div class="container mt-4">
+  <h2 class="text-center">Audit Asset List</h2>
+
+  <table class="table table-striped table-hover mt-3">
+    <thead class="table-dark">
+      <tr>
+        <th>Audit Request ID</th>
+        <th>Asset ID</th>
+        <th>User ID</th>
+        <th>Status</th>
+        <th>Request Date</th>
+        <th>Response Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let asset of uniqueAssets">
+        <td>{{ asset.auditRequestId }}</td>
+        <td>{{ asset.assetId }}</td>
+        <td>{{ asset.userId }}</td>
+        <td>{{ asset.auditStatus }}</td>
+        <td>{{ asset.requestDate | date: 'shortDate' }}</td>
+        <td>{{ asset.responseDate | date: 'shortDate' }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="openEditModal(asset)">Edit</button>
+          <button class="btn btn-danger" (click)="deleteAsset(asset.auditRequestId)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="showModal" class="modal-overlay">
+    <div class="modal-content">
+      <h5 class="modal-title">Edit Asset</h5>
+      <form *ngIf="selectedAsset">
+        <div class="mb-3">
+          <label for="assetId" class="form-label">Asset ID</label>
+          <input type="number" class="form-control" id="assetId" [(ngModel)]="selectedAsset.assetId" name="assetId" required>
+        </div>
+        <div class="mb-3">
+          <label for="userId" class="form-label">User ID</label>
+          <input type="number" class="form-control" id="userId" [(ngModel)]="selectedAsset.userId" name="userId" required>
+        </div>
+        <div class="mb-3">
+          <label for="auditStatus" class="form-label">Audit Status</label>
+          <input type="text" class="form-control" id="auditStatus" [(ngModel)]="selectedAsset.auditStatus" name="auditStatus" required>
+        </div>
+        <div class="mb-3">
+          <label for="requestDate" class="form-label">Request Date</label>
+          <input type="date" class="form-control" id="requestDate" [(ngModel)]="selectedAsset.requestDate" name="requestDate" required>
+        </div>
+        <div class="mb-3">
+          <label for="responseDate" class="form-label">Response Date</label>
+          <input type="date" class="form-control" id="responseDate" [(ngModel)]="selectedAsset.responseDate" name="responseDate" required>
+        </div>
+        <button type="button" class="btn btn-success" (click)="saveChanges()">Save Changes</button>
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<style>
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 50%;
+  }
+</style>
