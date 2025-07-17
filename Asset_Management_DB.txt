@@ -1,0 +1,106 @@
+-- -----------------------------------------------------
+-- DATABASE CREATION
+-- -----------------------------------------------------
+CREATE DATABASE IF NOT EXISTS asset_management;
+USE asset_management;
+
+-- -----------------------------------------------------
+-- USERS TABLE
+-- -----------------------------------------------------
+CREATE TABLE users (
+    user_id BIGINT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255),
+    email VARCHAR(255) UNIQUE,
+    password VARCHAR(255),
+    role VARCHAR(255),
+    gender VARCHAR(255),
+    contact_number VARCHAR(255),
+    address VARCHAR(255),
+    is_active BIT(1),
+    PRIMARY KEY (user_id)
+)
+-- -----------------------------------------------------
+-- ASSETS TABLE
+-- -----------------------------------------------------
+CREATE TABLE assets (
+    asset_id BIGINT NOT NULL AUTO_INCREMENT,
+    asset_no VARCHAR(255),
+    asset_name VARCHAR(255),
+    asset_category VARCHAR(255),
+    asset_model VARCHAR(255),
+    manufacturing_date DATE,
+    expiry_date DATE,
+    asset_value DOUBLE,
+    asset_status VARCHAR(255),
+    assigned_to BIGINT,
+    PRIMARY KEY (asset_id),
+    FOREIGN KEY (assigned_to) REFERENCES users(user_id)
+)
+-- -----------------------------------------------------
+-- ASSET AUDIT REQUESTS TABLE
+-- -----------------------------------------------------
+CREATE TABLE asset_audit_requests (
+    audit_request_id BIGINT NOT NULL AUTO_INCREMENT,
+    asset_id BIGINT,
+    user_id BIGINT,
+    audit_status VARCHAR(255),
+    request_date DATE,
+    response_date DATE,
+    PRIMARY KEY (audit_request_id),
+    FOREIGN KEY (asset_id) REFERENCES assets(asset_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+) 
+-- -----------------------------------------------------
+-- ASSET REQUESTS TABLE (Borrowing)
+-- -----------------------------------------------------
+CREATE TABLE asset_requests (
+    request_id BIGINT NOT NULL AUTO_INCREMENT,
+    user_id BIGINT,
+    asset_id BIGINT,
+    request_status VARCHAR(255),
+    request_date DATE,
+    PRIMARY KEY (request_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (asset_id) REFERENCES assets(asset_id)
+) 
+-- -----------------------------------------------------
+-- ASSET RETURN REQUESTS TABLE
+-- -----------------------------------------------------
+CREATE TABLE asset_return_requests (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    asset_id BIGINT,
+    user_id BIGINT,
+    reason VARCHAR(255),
+    status VARCHAR(255),
+    request_date DATE,
+    PRIMARY KEY (id)
+    -- Note: You can optionally add foreign keys here too
+) 
+-- -----------------------------------------------------
+-- ASSET SERVICE REQUESTS TABLE
+-- -----------------------------------------------------
+CREATE TABLE asset_service_requests (
+    service_request_id BIGINT NOT NULL AUTO_INCREMENT,
+    user_id BIGINT,
+    asset_id BIGINT,
+    issue_type VARCHAR(255),
+    description VARCHAR(255),
+    status VARCHAR(255),
+    request_date DATE,
+    PRIMARY KEY (service_request_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (asset_id) REFERENCES assets(asset_id)
+)
+-- -----------------------------------------------------
+-- AUDIT ASSETS TABLE (Snapshot of Assets)
+-- -----------------------------------------------------
+CREATE TABLE audit_assets (
+    id INT NOT NULL AUTO_INCREMENT,
+    assetNo VARCHAR(50),
+    assetName VARCHAR(100),
+    category VARCHAR(50),
+    status VARCHAR(50),
+    assignedTo VARCHAR(100),
+    auditDate DATE,
+    PRIMARY KEY (id)
+)
